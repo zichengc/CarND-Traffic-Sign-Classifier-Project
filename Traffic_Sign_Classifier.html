@@ -14281,8 +14281,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pwd</span>
 </pre></div>
 
      </div>
@@ -14298,13 +14297,15 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Mounted at /content/drive
-</pre>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;C:\\Users\\zichengc\\Documents\\Udacity\\UDACITY_Self_Driving\\CarND-Traffic-Sign-Classifier-Project&#39;</pre>
 </div>
+
 </div>
 
 </div>
@@ -14314,11 +14315,12 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">data_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/traffic-signs-data/&quot;</span><span class="p">)</span>
+<span class="n">data_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./traffic-signs-data/&quot;</span><span class="p">)</span>
+<span class="n">save_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14329,7 +14331,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load pickled data</span>
@@ -14362,13 +14364,13 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## read sign names</span>
 <span class="kn">import</span> <span class="nn">csv</span>
 <span class="n">sign_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="n">signname_file</span> <span class="o">=</span> <span class="n">data_folder</span> <span class="o">/</span> <span class="s2">&quot;signnames.csv&quot;</span>
+<span class="n">signname_file</span> <span class="o">=</span> <span class="n">save_folder</span> <span class="o">/</span> <span class="s2">&quot;signnames.csv&quot;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">signname_file</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
@@ -14379,41 +14381,6 @@ a.anchor-link {
      </div>
 </div>
 </div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sign_dict</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>{0: &#39;Speed limit (20km/h)&#39;, 1: &#39;Speed limit (30km/h)&#39;, 2: &#39;Speed limit (50km/h)&#39;, 3: &#39;Speed limit (60km/h)&#39;, 4: &#39;Speed limit (70km/h)&#39;, 5: &#39;Speed limit (80km/h)&#39;, 6: &#39;End of speed limit (80km/h)&#39;, 7: &#39;Speed limit (100km/h)&#39;, 8: &#39;Speed limit (120km/h)&#39;, 9: &#39;No passing&#39;, 10: &#39;No passing for vehicles over 3.5 metric tons&#39;, 11: &#39;Right-of-way at the next intersection&#39;, 12: &#39;Priority road&#39;, 13: &#39;Yield&#39;, 14: &#39;Stop&#39;, 15: &#39;No vehicles&#39;, 16: &#39;Vehicles over 3.5 metric tons prohibited&#39;, 17: &#39;No entry&#39;, 18: &#39;General caution&#39;, 19: &#39;Dangerous curve to the left&#39;, 20: &#39;Dangerous curve to the right&#39;, 21: &#39;Double curve&#39;, 22: &#39;Bumpy road&#39;, 23: &#39;Slippery road&#39;, 24: &#39;Road narrows on the right&#39;, 25: &#39;Road work&#39;, 26: &#39;Traffic signals&#39;, 27: &#39;Pedestrians&#39;, 28: &#39;Children crossing&#39;, 29: &#39;Bicycles crossing&#39;, 30: &#39;Beware of ice/snow&#39;, 31: &#39;Wild animals crossing&#39;, 32: &#39;End of all speed and passing limits&#39;, 33: &#39;Turn right ahead&#39;, 34: &#39;Turn left ahead&#39;, 35: &#39;Ahead only&#39;, 36: &#39;Go straight or right&#39;, 37: &#39;Go straight or left&#39;, 38: &#39;Keep right&#39;, 39: &#39;Keep left&#39;, 40: &#39;Roundabout mandatory&#39;, 41: &#39;End of no passing&#39;, 42: &#39;End of no passing by vehicles over 3.5 metric tons&#39;}
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14438,7 +14405,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[63]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Replace each question mark with the appropriate value. </span>
@@ -14527,8 +14494,8 @@ Number of classes = 43
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">sign_dict</span><span class="p">[</span><span class="n">sign</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="c1"># plt.show()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">/</span> <span class="s2">&quot;output_img/Sample_img.jpg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># plt.savefig(save_folder / &quot;output_img/Sample_img.jpg&quot;)</span>
 </pre></div>
 
      </div>
@@ -14573,8 +14540,8 @@ Number of classes = 43
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">count</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Label Index&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="c1"># plt.show()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">/</span> <span class="s2">&quot;output_img/label_dist.jpg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># plt.savefig(data_folder / &quot;output_img/label_dist.jpg&quot;)</span>
 </pre></div>
 
      </div>
@@ -15133,7 +15100,7 @@ Accuracy on test dataset: 0.9261282682418823
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">sign_dict</span><span class="p">[</span><span class="n">sign</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="c1"># plt.savefig(data_folder / &quot;output_img/original.jpg&quot;)</span>
+<span class="c1"># plt.savefig(save_folder / &quot;output_img/original.jpg&quot;)</span>
 </pre></div>
 
      </div>
@@ -15180,7 +15147,8 @@ Accuracy on test dataset: 0.9261282682418823
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">)</span> <span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">sign_dict</span><span class="p">[</span><span class="n">sign</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">/</span> <span class="s2">&quot;output_img/gray_resize.jpg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># plt.savefig(save_folder / &quot;output_img/gray_resize.jpg&quot;)</span>
 </pre></div>
 
      </div>
